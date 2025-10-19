@@ -162,7 +162,7 @@
             }
 
             container.innerHTML = presentations.map(pres => `
-                <a href="/${pres.slug}/" class="presentation-card">
+                <a href="/presentations/${pres.slug}/" class="presentation-card">
                     <div class="icon">📊</div>
                     <h2>${pres.title}</h2>
                     <p>${pres.description || 'Click to view presentation'}</p>
