@@ -162,19 +162,30 @@ graph TD
 
 ---
 
-## Code Examples
+## Principles
 
-```javascript
-function hello() {
-    console.log("Hello, World!");
-}
-```
+1. Identify and empathise all audience perspectives on the codebase.
+2. Provide specific interfaces for each audience perspective.
+3. Keep interfaces clear, concise, and focused on audience needs.
+4. Regularly update interfaces as the codebase evolves.
+5. Set expectations and encourage feedback from all audiences to improve interfaces.
 
-Code blocks are automatically syntax highlighted!
+--
+
+<!-- markdownlint-disable MD024 MD029 -->
+## Principles
+
+6. Provide a replicable cross-platform codebase experience.
+7. Utilise cross-platform and cross-IDE tools and technologies.
+8. Provide a consistent abstraction over languages and frameworks.
+9. Do not be constrained by current technology and tools - provoke change.
+10. Empathise with your own future self who could become any of the audience perspectives at any time.
+
+<!-- markdownlint-enable MD024 MD029 -->
 
 ---
 
-## Lists and Formatting
+## Benefits
 
 - **Bold text** with `**text**`
 - *Italic text* with `*text*`
@@ -195,6 +206,14 @@ Press 'S' during the presentation to view them.
 
 ---
 
+---
+
 ## Thank You!
 
 Visit [codebaseinterface.org](https://codebaseinterface.org)
+
+### Support
+
+If you found this presentation helpful, consider supporting the project:
+
+- ⭐ Star the [GitHub repository](https://github.com/codebase-interface/codebase-interface.github.io)
