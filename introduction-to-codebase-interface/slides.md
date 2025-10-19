@@ -239,9 +239,9 @@ graph TD
     CLI["⚙️ Abstracted CLI<br/><small>Taskfile/Make/Just</small>"]
     
     %% Common Commands
-    INSTALL["📦 task install"]
-    TEST["🧪 task test"]
-    BUILD["🔨 task build"]
+    SETUP["📦 setup"]
+    TEST["🧪 test"]
+    BUILD["🔨 build"]
     
     %% Language-Specific Tools
     NODE["🟨 Node.js<br/><small>npm install<br/>npm test<br/>npm run build</small>"]
@@ -253,14 +253,14 @@ graph TD
     CONTRIBUTOR ==> CLI
     BUILD_AGENT ==> CLI
     
-    CLI --> INSTALL
+    CLI --> SETUP
     CLI --> TEST
     CLI --> BUILD
     
-    INSTALL -.-> NODE
-    INSTALL -.-> PYTHON
-    INSTALL -.-> GO
-    INSTALL -.-> RUST
+    SETUP -.-> NODE
+    SETUP -.-> PYTHON
+    SETUP -.-> GO
+    SETUP -.-> RUST
     
     TEST -.-> NODE
     TEST -.-> PYTHON
@@ -280,7 +280,7 @@ graph TD
     
     class CONTRIBUTOR,BUILD_AGENT audience
     class CLI abstraction
-    class INSTALL,TEST,BUILD command
+    class SETUP,TEST,BUILD command
     class NODE,PYTHON,GO,RUST language
 ```
 
