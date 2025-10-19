@@ -142,11 +142,8 @@
             // For GitHub Pages, we'll need to maintain a list of presentations
             // This can be updated manually or via a build script
             const presentations = [
-                { 
-                    slug: 'getting-started', 
-                    title: 'Getting Started', 
-                    description: 'Learn how to create and manage presentations with reveal.js' 
-                }
+                { slug: 'getting-started', title: 'Getting Started', description: 'Click to view presentation' },
+                { slug: 'intro', title: 'intro', description: 'Click to view presentation' }
             ];
 
             if (presentations.length === 0) {
@@ -155,7 +152,7 @@
                         <h2>No Presentations Yet</h2>
                         <p>Get started by creating your first presentation:</p>
                         <p><code>task new -- my-first-presentation</code></p>
-                        <p>Then add it to the presentations array in index.html</p>
+                        <p>Your presentation will automatically appear on this page!</p>
                     </div>
                 `;
                 return;

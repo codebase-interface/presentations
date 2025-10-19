@@ -38,11 +38,15 @@ tasks:
         echo "✅ Created new presentation: ${SLUG}"
         echo "📂 Location: ${PRES_DIR}"
         echo "🌐 Will be available at: /${SLUG}/"
+      - task: update-index
+      - |
+        echo ""
+        echo "📋 Updated index.html with new presentation"
         echo ""
         echo "Next steps:"
-        echo "  1. Edit ${PRES_DIR}/slides.md to add your slides (Markdown format)"
+        echo "  1. Edit {{.CLI_ARGS}}/slides.md to add your slides (Markdown format)"
         echo "  2. Run 'task serve' to preview locally"
-        echo "  3. View at http://localhost:{{.SERVER_PORT}}/${SLUG}/"
+        echo "  3. View at http://localhost:{{.SERVER_PORT}}/{{.CLI_ARGS}}/"
 
   list:
     desc: List all presentations
@@ -67,7 +71,7 @@ tasks:
         fi
 
   update-index:
-    desc: Generate presentations array for index.html
+    desc: Update index.html with current presentations list
     cmds:
       - ./scripts/update-index.sh
 
