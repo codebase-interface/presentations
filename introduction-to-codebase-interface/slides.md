@@ -164,51 +164,154 @@ graph TD
 
 ## Principles
 
-1. Identify and empathise all audience perspectives on the codebase.
+1. Identify and empathise with all audience perspectives on the codebase.
 2. Provide specific interfaces for each audience perspective.
 3. Keep interfaces clear, concise, and focused on audience needs.
-4. Regularly update interfaces as the codebase evolves.
-5. Set expectations and encourage feedback from all audiences to improve interfaces.
 
 --
 
 <!-- markdownlint-disable MD024 MD029 -->
 ## Principles
 
+4. Regularly update interfaces as the codebase evolves.
+5. Set the expectations and encourage feedback from all audiences to improve interfaces.
 6. Provide a replicable cross-platform codebase experience.
-7. Utilise cross-platform and cross-IDE tools and technologies.
-8. Provide a consistent abstraction over languages and frameworks.
-9. Do not be constrained by current technology and tools - provoke change.
-10. Empathise with your own future self who could become any of the audience perspectives at any time.
+
+--
+
+## Principles
+
+7. Provide a consistent abstraction over languages and frameworks.
+8. Do not be constrained by current technology and tools - provoke change.
+9. Empathise with your own future self who could become any of the audience perspectives at any time.
 
 <!-- markdownlint-enable MD024 MD029 -->
 
 ---
 
+## The Improvement Cycle
+
+```mermaid
+graph TB
+    INTERFACES["📋 Clear Interfaces<br/><small>Set Expectations</small>"]
+    CONFIDENCE["✨ Confident Users<br/><small>Know What to Expect</small>"]
+    FEEDBACK["💬 Better Feedback<br/><small>Specific & Actionable</small>"]
+    IMPROVEMENTS["🔧 Improvements<br/><small>Enhanced Interfaces</small>"]
+    
+    INTERFACES ==> CONFIDENCE
+    CONFIDENCE ==> FEEDBACK
+    FEEDBACK ==> IMPROVEMENTS
+    IMPROVEMENTS ==> INTERFACES
+    
+    classDef cycle fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    class INTERFACES,CONFIDENCE,FEEDBACK,IMPROVEMENTS cycle
+```
+
+---
+
 ## Benefits
 
-- **Bold text** with `**text**`
-- *Italic text* with `*text*`
-- `Inline code` with backticks
-- [Links](https://codebaseinterface.org)
+- 🚀 **Faster onboarding** - People know what to expect
+- 🆘 **Fewer support requests** - Clear guidance upfront
+- 🤝 **Better contributions** - Contributors understand the process
+- ✨ **Higher quality** - Feedback loop drives improvements
 
 ---
 
-## Fragment Animations
+## Tooling
 
-- Item 1 <!-- .element: class="fragment" -->
-- Item 2 <!-- .element: class="fragment" -->
-- Item 3 <!-- .element: class="fragment" -->
+- **Taskfile** - Cross-platform task automation and CLI abstraction
+- **EditorConfig** - Consistent code formatting across editors and teams  
+- **Pre-commit** - Automated code quality checks before commits
+- **Conventional Commits** - Standardised commit messages for better changelogs
 
-Note:
-These are speaker notes. They won't appear on the slides.
-Press 'S' during the presentation to view them.
+--
+
+## CLI Abstractions
+
+```mermaid
+graph TD
+    %% Audiences
+    CONTRIBUTOR["🧑‍💻 Contributor<br/><small>Developer</small>"]
+    BUILD_AGENT["🤖 Build Agent<br/><small>CI/CD System</small>"]
+    
+    %% Abstraction Layer
+    CLI["⚙️ Abstracted CLI<br/><small>Taskfile/Make/Just</small>"]
+    
+    %% Common Commands
+    INSTALL["📦 task install"]
+    TEST["🧪 task test"]
+    BUILD["🔨 task build"]
+    
+    %% Language-Specific Tools
+    NODE["🟨 Node.js<br/><small>npm install<br/>npm test<br/>npm run build</small>"]
+    PYTHON["🐍 Python<br/><small>pip install<br/>pytest<br/>python -m build</small>"]
+    GO["🐹 Go<br/><small>go mod download<br/>go test<br/>go build</small>"]
+    RUST["🦀 Rust<br/><small>cargo install<br/>cargo test<br/>cargo build</small>"]
+    
+    %% Connections
+    CONTRIBUTOR ==> CLI
+    BUILD_AGENT ==> CLI
+    
+    CLI --> INSTALL
+    CLI --> TEST
+    CLI --> BUILD
+    
+    INSTALL -.-> NODE
+    INSTALL -.-> PYTHON
+    INSTALL -.-> GO
+    INSTALL -.-> RUST
+    
+    TEST -.-> NODE
+    TEST -.-> PYTHON
+    TEST -.-> GO
+    TEST -.-> RUST
+    
+    BUILD -.-> NODE
+    BUILD -.-> PYTHON
+    BUILD -.-> GO
+    BUILD -.-> RUST
+    
+    %% Styling
+    classDef audience fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    classDef abstraction fill:#e8f5e8,stroke:#2e7d32,stroke-width:3px,color:#1b5e20
+    classDef command fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#1565c0
+    classDef language fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    class CONTRIBUTOR,BUILD_AGENT audience
+    class CLI abstraction
+    class INSTALL,TEST,BUILD command
+    class NODE,PYTHON,GO,RUST language
+```
 
 ---
 
+## Remember
+
+**Tooling helps, but YOU must deliver on the expectations you set.**
+
+```mermaid
+graph TD
+
+    EXPECTATIONS["📋 Set Expectations<br/><small>Clear Interfaces</small>"]
+    YOU["👤 YOU<br/><small>Deliver on Promises</small>"]
+    SUCCESS["✨ Benefits of Good Codebase Interface<br/><small>Trust & Quality</small>"]
+    
+    EXPECTATIONS ==> YOU
+    YOU ==> SUCCESS
+    
+    classDef action fill:#e8f5e8,stroke:#2e7d32,stroke-width:3px,color:#1b5e20
+    classDef success fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#1565c0
+    
+    class EXPECTATIONS,YOU action
+    class SUCCESS success
+```
+
 ---
 
+<!-- markdownlint-disable MD026 -->
 ## Thank You!
+<!-- markdownlint-enable MD026-->
 
 Visit [codebaseinterface.org](https://codebaseinterface.org)
 
@@ -216,4 +319,5 @@ Visit [codebaseinterface.org](https://codebaseinterface.org)
 
 If you found this presentation helpful, consider supporting the project:
 
+- 👥 Follow the github organisation [Codebase Interface](https://github.com/codebase-interface)
 - ⭐ Star the [GitHub repository](https://github.com/codebase-interface/codebase-interface.github.io)
