@@ -9,6 +9,7 @@ tasks:
     desc: Install dependencies
     cmds:
       - npm install
+      - task setup-lib
 
   serve:
     desc: Start local development server
@@ -64,10 +65,19 @@ tasks:
     cmds:
       - ./scripts/update-index.sh
 
+  setup-lib:
+    desc: Set up library files for GitHub Pages deployment
+    cmds:
+      - mkdir -p lib/reveal.js
+      - cp -r node_modules/reveal.js/dist lib/reveal.js/
+      - cp -r node_modules/reveal.js/plugin lib/reveal.js/
+      - echo "✅ Library files copied to lib/ directory"
+
   clean:
     desc: Clean generated files
     cmds:
       - npm run clean
+      - rm -rf lib
 
   help:
     desc: Show available commands

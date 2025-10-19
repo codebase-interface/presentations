@@ -1,9 +1,9 @@
 # Jekyll configuration for GitHub Pages
 # This file tells GitHub Pages to serve the site directly without Jekyll processing
 
-# Prevent Jekyll from processing files
+# Include necessary directories
 include:
-  - node_modules
+  - lib
 
 # Exclude unnecessary files from the published site
 exclude:
@@ -13,5 +13,6 @@ exclude:
   - Taskfile.yml
   - package.json
   - package-lock.json
+  - node_modules
   - README.md
   - CONTRIBUTING.md

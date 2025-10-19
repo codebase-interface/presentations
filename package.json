@@ -4,8 +4,8 @@
   "description": "Reveal.js based presentations for codebase interface",
   "scripts": {
     "serve": "npx http-server -p 8000 -c-1",
-    "build": "echo 'Build complete - static site ready for deployment'",
-    "clean": "rm -rf dist"
+    "build": "mkdir -p lib/reveal.js && cp -r node_modules/reveal.js/dist lib/reveal.js/ && cp -r node_modules/reveal.js/plugin lib/reveal.js/ && echo 'Build complete - static site ready for deployment'",
+    "clean": "rm -rf dist lib"
   },
   "dependencies": {
     "reveal.js": "^5.0.0"
