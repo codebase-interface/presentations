@@ -1,7 +1,7 @@
 version: '3'
 
 vars:
-  PRESENTATIONS_DIR: presentations
+  PRESENTATIONS_DIR: .
   SERVER_PORT: 8000
 
 tasks:
@@ -26,7 +26,7 @@ tasks:
           exit 1
         fi
         SLUG="{{.CLI_ARGS}}"
-        PRES_DIR="{{.PRESENTATIONS_DIR}}/${SLUG}"
+        PRES_DIR="${SLUG}"
         if [ -d "${PRES_DIR}" ]; then
           echo "Error: Presentation '${SLUG}' already exists"
           exit 1
@@ -37,26 +37,32 @@ tasks:
         sed -i "s/PRESENTATION_TITLE/${SLUG}/g" "${PRES_DIR}/slides.md"
         echo "✅ Created new presentation: ${SLUG}"
         echo "📂 Location: ${PRES_DIR}"
-        echo "🌐 Will be available at: /presentations/${SLUG}/"
+        echo "🌐 Will be available at: /${SLUG}/"
         echo ""
         echo "Next steps:"
         echo "  1. Edit ${PRES_DIR}/slides.md to add your slides (Markdown format)"
         echo "  2. Run 'task serve' to preview locally"
-        echo "  3. View at http://localhost:{{.SERVER_PORT}}/presentations/${SLUG}/"
+        echo "  3. View at http://localhost:{{.SERVER_PORT}}/${SLUG}/"
 
   list:
     desc: List all presentations
     cmds:
       - |
         echo "Available presentations:"
-        if [ -d "{{.PRESENTATIONS_DIR}}" ]; then
-          for dir in {{.PRESENTATIONS_DIR}}/*/; do
-            if [ -d "$dir" ]; then
-              name=$(basename "$dir")
-              echo "  📊 ${name} - /presentations/${name}/"
+        # Look for directories that contain index.html and slides.md (presentation indicators)
+        # Exclude known non-presentation directories
+        found=false
+        for dir in */; do
+          if [ -d "$dir" ] && [ -f "${dir}index.html" ] && [ -f "${dir}slides.md" ]; then
+            name=$(basename "$dir")
+            # Skip known system directories
+            if [[ "$name" != "lib" && "$name" != "node_modules" && "$name" != ".git" && "$name" != "templates" && "$name" != "scripts" && "$name" != "presentations" ]]; then
+              echo "  📊 ${name} - /${name}/"
+              found=true
             fi
-          done
-        else
+          fi
+        done
+        if [ "$found" = false ]; then
           echo "  No presentations found"
         fi
 
