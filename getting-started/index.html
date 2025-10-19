@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../lib/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="../lib/reveal.js/dist/theme/black.css">
     <link rel="stylesheet" href="../lib/reveal.js/plugin/highlight/monokai.css">
+    <!-- Mermaid CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 </head>
 <body>
     <div class="reveal">
@@ -27,6 +29,15 @@
     <script src="../lib/reveal.js/plugin/markdown/markdown.js"></script>
     <script src="../lib/reveal.js/plugin/highlight/highlight.js"></script>
     <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true
+            }
+        });
+
         Reveal.initialize({
             hash: true,
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
@@ -35,6 +46,36 @@
             progress: true,
             center: true,
             transition: 'slide', // none/fade/slide/convex/concave/zoom
+        });
+
+        // Function to process Mermaid diagrams
+        function processMermaidDiagrams() {
+            // Find code blocks with mermaid class and convert them
+            const mermaidBlocks = document.querySelectorAll('code.language-mermaid, code.mermaid');
+            mermaidBlocks.forEach(function(block) {
+                if (!block.getAttribute('data-processed')) {
+                    const mermaidDiv = document.createElement('div');
+                    mermaidDiv.className = 'mermaid';
+                    mermaidDiv.textContent = block.textContent;
+                    block.parentNode.replaceWith(mermaidDiv);
+                }
+            });
+
+            // Process all mermaid divs
+            const mermaidDivs = document.querySelectorAll('.mermaid:not([data-processed])');
+            if (mermaidDivs.length > 0) {
+                mermaid.init(undefined, mermaidDivs);
+            }
+        }
+
+        // Initialize Mermaid diagrams when slides change
+        Reveal.on('slidechanged', function() {
+            processMermaidDiagrams();
+        });
+
+        // Initialize Mermaid diagrams on ready
+        Reveal.on('ready', function() {
+            processMermaidDiagrams();
         });
     </script>
 </body>
