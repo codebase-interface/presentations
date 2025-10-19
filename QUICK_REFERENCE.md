@@ -19,7 +19,8 @@
 
 ## 📂 File Locations
 ```
-presentations/my-presentation/index.html  ← Edit your slides here
+presentations/my-presentation/slides.md    ← Edit your slides here (Markdown)
+presentations/my-presentation/index.html   ← HTML wrapper (rarely needs editing)
 index.html                                 ← Add to presentations array
 CONTRIBUTING.md                            ← Full documentation
 ```
@@ -42,36 +43,62 @@ Edit your presentation's HTML:
 
 Available: black, white, league, beige, sky, night, serif, simple, solarized, moon, dracula, blood
 
-## 📝 Basic Slide Structure
-```html
-<!-- Simple slide -->
-<section>
-    <h2>Title</h2>
-    <p>Content</p>
-</section>
+## 📝 Basic Markdown Slide Structure
+```markdown
+# First Slide
 
-<!-- Vertical slides -->
-<section>
-    <section><h2>Main Topic</h2></section>
-    <section><h2>Detail 1</h2></section>
-    <section><h2>Detail 2</h2></section>
-</section>
+Content for the first slide
 
-<!-- Code with highlighting -->
-<section>
-    <pre><code data-trim>
+---
+
+# Second Slide
+
+Content for the second slide
+
+---
+
+## Vertical Slides
+
+Main topic
+
+--
+
+### Subtopic 1
+
+Use -- for vertical slides
+
+--
+
+### Subtopic 2
+
+Navigate with up/down arrows
+
+---
+
+## Code with Highlighting
+
+```javascript
 function hello() {
     console.log("Hello!");
 }
-    </code></pre>
-</section>
+` ``
 
-<!-- Step-by-step reveal -->
-<section>
-    <p class="fragment">First</p>
-    <p class="fragment">Second</p>
-    <p class="fragment">Third</p>
-</section>
+---
+
+## Step-by-Step Reveal
+
+- First item <!-- .element: class="fragment" -->
+- Second item <!-- .element: class="fragment" -->
+- Third item <!-- .element: class="fragment" -->
+
+---
+
+## Speaker Notes
+
+Slide content here
+
+Note:
+These are speaker notes, press S to view them
 ```
 
 ## 🌐 URL Structure
@@ -82,17 +109,18 @@ https://codebaseinterface.org/presentations/my-presentation/
 
 ## 🔄 Workflow
 1. **Create:** `task new -- presentation-name`
-2. **Edit:** `presentations/presentation-name/index.html`
+2. **Edit:** `presentations/presentation-name/slides.md` (Markdown format)
 3. **Test:** `task serve` → http://localhost:8000
 4. **List:** `task update-index` → copy to index.html
 5. **Deploy:** Push to main branch (auto-deploys via GitHub Actions)
 
 ## 💡 Pro Tips
-- Use `class="fragment"` for step-by-step reveals
+- Write slides in Markdown for easy editing
+- Use `---` for horizontal slides, `--` for vertical slides
+- Add `<!-- .element: class="fragment" -->` for step-by-step reveals
 - Press `S` during presentation for speaker notes
-- Use vertical slides (nested sections) for related content
+- Add speaker notes with `Note:` prefix
 - Test in fullscreen mode (`F` key) before presenting
-- Add speaker notes inside `<aside class="notes">` tags
 
 ## 🆘 Need Help?
 - Full guide: See `CONTRIBUTING.md`
@@ -101,7 +129,7 @@ https://codebaseinterface.org/presentations/my-presentation/
 
 ## ✅ Checklist for New Presentation
 - [ ] Run `task new -- presentation-name`
-- [ ] Edit slides in `presentations/presentation-name/index.html`
+- [ ] Edit slides in `presentations/presentation-name/slides.md` (Markdown)
 - [ ] Test locally with `task serve`
 - [ ] Add entry to `index.html` presentations array
 - [ ] Commit and push to trigger deployment

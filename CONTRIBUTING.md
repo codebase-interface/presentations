@@ -6,7 +6,7 @@ This repository hosts reveal.js-based presentations for the Codebase Interface o
 
 ```
 1. Create presentation:        task new -- my-presentation
-2. Edit slides:                presentations/my-presentation/index.html
+2. Edit slides:                presentations/my-presentation/slides.md
 3. Test locally:               task serve
 4. Add to index:               index.html (update presentations array)
 5. Commit & push:              Git workflow
@@ -62,8 +62,8 @@ task new -- my-presentation-name
 
 This will:
 - Create a new directory under `presentations/my-presentation-name/`
-- Copy the presentation template
-- Set up the basic structure with sample slides
+- Copy the presentation template (HTML and Markdown files)
+- Set up the basic structure with sample slides in Markdown
 - Show you the next steps
 
 **Example:**
@@ -85,46 +85,95 @@ If you prefer to create a presentation manually:
    cp -r templates/presentation/* presentations/my-presentation/
    ```
 
-3. Edit the `presentations/my-presentation/index.html` file to add your content.
+3. Edit the `presentations/my-presentation/slides.md` file to add your content in Markdown.
 
 ## Editing Your Presentation
 
-1. Open `presentations/your-presentation-name/index.html` in your favorite editor.
+Presentations use Markdown format, making them easy to write and maintain!
 
-2. Each `<section>` tag represents a slide:
-   ```html
-   <section>
-       <h2>My Slide Title</h2>
-       <p>Slide content goes here</p>
-   </section>
+1. Open `presentations/your-presentation-name/slides.md` in your favorite editor.
+
+2. Use `---` to separate horizontal slides:
+   ```markdown
+   # First Slide
+
+   Content for first slide
+
+   ---
+
+   # Second Slide
+
+   Content for second slide
    ```
 
-3. For vertical slides (sub-slides), nest sections:
-   ```html
-   <section>
-       <section>
-           <h2>Main Topic</h2>
-       </section>
-       <section>
-           <h2>Sub-topic 1</h2>
-       </section>
-       <section>
-           <h2>Sub-topic 2</h2>
-       </section>
-   </section>
+3. Use `--` for vertical slides (sub-slides):
+   ```markdown
+   # Main Topic
+
+   ---
+
+   ## Subtopic 1
+
+   --
+
+   ## Subtopic 2
+
+   --
+
+   ## Subtopic 3
    ```
 
-4. Add code blocks with syntax highlighting:
-   ```html
-   <section>
-       <h2>Code Example</h2>
-       <pre><code data-trim data-noescape>
+4. Format text with Markdown:
+   ```markdown
+   # Heading 1
+   ## Heading 2
+   
+   **Bold text**
+   *Italic text*
+   `Inline code`
+   
+   - Bullet point 1
+   - Bullet point 2
+   
+   1. Numbered item 1
+   2. Numbered item 2
+   
+   [Link text](https://example.com)
+   ```
+
+5. Add code blocks with syntax highlighting:
+   ```markdown
+   ```javascript
    function example() {
        return "Hello World";
    }
-       </code></pre>
-   </section>
+   ` ``
    ```
+
+6. Add fragment animations (step-by-step reveals):
+   ```markdown
+   - First item <!-- .element: class="fragment" -->
+   - Second item <!-- .element: class="fragment" -->
+   - Third item <!-- .element: class="fragment" -->
+   ```
+
+7. Add speaker notes:
+   ```markdown
+   This is slide content
+
+   Note:
+   These are speaker notes that only appear in presenter view
+   ```
+
+### Advanced HTML in Markdown
+
+You can also use HTML within your Markdown for more control:
+
+```markdown
+<div style="color: red;">
+Custom styled content
+</div>
+```
 
 ## Testing Locally
 
@@ -188,37 +237,36 @@ After creating a presentation, add it to the main index page so it appears on th
 ## Reveal.js Features
 
 This setup includes the following reveal.js plugins:
-- **Markdown** - Write slides in Markdown
+- **Markdown** - Write slides in Markdown (primary method)
 - **Highlight** - Syntax highlighting for code
 - **Notes** - Speaker notes (press `S` during presentation)
 
-### Advanced Features
-
-**Fragments (step-by-step reveals):**
-```html
-<section>
-    <p class="fragment">First point</p>
-    <p class="fragment">Second point</p>
-    <p class="fragment">Third point</p>
-</section>
-```
+### Advanced Features in Markdown
 
 **Backgrounds:**
-```html
-<section data-background-color="#ff0000">
-    <h2>Red background</h2>
-</section>
 
-<section data-background-image="image.jpg">
-    <h2>Image background</h2>
-</section>
+Add backgrounds using HTML comments:
+```markdown
+<!-- .slide: data-background-color="#ff0000" -->
+# Red Background Slide
+
+---
+
+<!-- .slide: data-background-image="image.jpg" -->
+# Image Background Slide
 ```
 
 **Transitions:**
-```html
-<section data-transition="zoom">
-    <h2>This slide zooms in</h2>
-</section>
+```markdown
+<!-- .slide: data-transition="zoom" -->
+# This Slide Zooms In
+```
+
+**Custom Classes and Styles:**
+```markdown
+This text is red <!-- .element: style="color: red;" -->
+
+Centered content <!-- .element: class="r-fit-text" -->
 ```
 
 For more features, see the [reveal.js documentation](https://revealjs.com/).
@@ -259,15 +307,17 @@ https://codebaseinterface.org/presentations/your-presentation-name/
 2. **Use visuals** - Images, diagrams, and code examples are powerful
 3. **Test locally** - Always preview your presentation before committing
 4. **Consistent naming** - Use lowercase and hyphens for presentation names (e.g., `my-presentation`)
-5. **Organize slides** - Use sections for main topics and nested sections for details
-6. **Add speaker notes** - Use `<aside class="notes">` for presenter guidance
+5. **Organize slides** - Use horizontal slides (`---`) for main topics and vertical slides (`--`) for details
+6. **Add speaker notes** - Use `Note:` prefix in Markdown for presenter guidance
+7. **Write in Markdown** - It's easier to maintain and version control than HTML
 
 ## Troubleshooting
 
 ### Presentation not showing?
 - Ensure you've run `task install` to install dependencies
-- Check that your presentation directory has an `index.html` file
+- Check that your presentation directory has both `index.html` and `slides.md` files
 - Verify the reveal.js paths in your HTML are correct (`../../node_modules/reveal.js/...`)
+- Make sure the markdown file path in index.html matches your filename
 
 ### Styles not loading?
 - Make sure `node_modules` exists (run `task install`)

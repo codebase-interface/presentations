@@ -37,11 +37,26 @@ Your presentation will be available at: `http://localhost:8000/presentations/my-
 
 ## Creating Presentations
 
+Presentations are written in **Markdown** for easy editing!
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on:
-- Creating and editing presentations
+- Creating and editing presentations in Markdown
 - Using reveal.js features
 - Adding presentations to the index
 - Deployment
+
+**Quick example:**
+```markdown
+# My Slide Title
+
+Content goes here
+
+---
+
+# Next Slide
+
+More content
+```
 
 ## Structure
 
@@ -50,10 +65,12 @@ presentations/
 ├── index.html              # Main listing page
 ├── presentations/          # Individual presentation directories
 │   └── example/           
-│       └── index.html     # Presentation slides
+│       ├── index.html     # HTML wrapper
+│       └── slides.md      # Presentation slides (Markdown)
 ├── templates/             # Templates for new presentations
 │   └── presentation/
-│       └── index.html
+│       ├── index.html     # HTML wrapper template
+│       └── slides.md      # Markdown slides template
 ├── Taskfile.yml           # Task automation
 └── package.json           # Dependencies
 ```
@@ -61,7 +78,8 @@ presentations/
 ## Features
 
 - 📊 **Multiple Presentations** - Create unlimited slide decks
-- 🎨 **Beautiful Themes** - Powered by reveal.js
+- ✍️ **Markdown-Based** - Write slides in Markdown, not HTML
+- 🎨 **Beautiful Themes** - 13 built-in reveal.js themes
 - 💻 **Code Highlighting** - Syntax highlighting for code examples
 - 📱 **Responsive** - Works on desktop, tablet, and mobile
 - 🚀 **Easy Deployment** - Automatic deployment to GitHub Pages

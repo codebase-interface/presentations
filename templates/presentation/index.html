@@ -12,48 +12,12 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <!-- Title Slide -->
-            <section>
-                <h1>PRESENTATION_TITLE</h1>
-                <p>A presentation by Codebase Interface</p>
-            </section>
-
-            <!-- Content Slide -->
-            <section>
-                <h2>Welcome</h2>
-                <p>This is a sample slide. Edit this file to create your presentation.</p>
-            </section>
-
-            <!-- Nested Vertical Slides -->
-            <section>
-                <section>
-                    <h2>Vertical Slides</h2>
-                    <p>Press down arrow for more</p>
-                </section>
-                <section>
-                    <h2>Nested Slide 1</h2>
-                    <p>You can create vertical slide stacks</p>
-                </section>
-                <section>
-                    <h2>Nested Slide 2</h2>
-                    <p>Navigate with arrow keys</p>
-                </section>
-            </section>
-
-            <!-- Code Example Slide -->
-            <section>
-                <h2>Code Examples</h2>
-                <pre><code data-trim data-noescape>
-function hello() {
-    console.log("Hello, World!");
-}
-                </code></pre>
-            </section>
-
-            <!-- Final Slide -->
-            <section>
-                <h2>Thank You!</h2>
-                <p>Visit <a href="https://codebaseinterface.org">codebaseinterface.org</a></p>
+            <!-- Markdown content loaded from slides.md -->
+            <section data-markdown="slides.md"
+                     data-separator="^\n---\n$"
+                     data-separator-vertical="^\n--\n$"
+                     data-separator-notes="^Note:"
+                     data-charset="utf-8">
             </section>
         </div>
     </div>
