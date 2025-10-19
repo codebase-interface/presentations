@@ -255,6 +255,7 @@ graph TD
     %% Common Commands
     SETUP["📦 setup"]
     TEST["🧪 test"]
+    LINT["🔍 lint"]
     BUILD["🔨 build"]
     
     %% Language-Specific Tools
@@ -300,7 +301,7 @@ graph TD
     
     class CONTRIBUTOR,BUILD_AGENT audience
     class CLI abstraction
-    class SETUP,TEST, LINT, BUILD command
+    class SETUP,TEST,LINT,BUILD command
     class NODE,PYTHON,GO,RUST language
 ```
 
