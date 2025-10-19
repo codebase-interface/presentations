@@ -255,6 +255,7 @@ graph TD
     
     CLI --> SETUP
     CLI --> TEST
+    CLI --> LINT
     CLI --> BUILD
     
     SETUP -.-> NODE
@@ -266,6 +267,11 @@ graph TD
     TEST -.-> PYTHON
     TEST -.-> GO
     TEST -.-> RUST
+
+    LINT -.-> NODE
+    LINT -.-> PYTHON
+    LINT -.-> GO
+    LINT -.-> RUST
     
     BUILD -.-> NODE
     BUILD -.-> PYTHON
@@ -280,7 +286,7 @@ graph TD
     
     class CONTRIBUTOR,BUILD_AGENT audience
     class CLI abstraction
-    class SETUP,TEST,BUILD command
+    class SETUP,TEST, LINT, BUILD command
     class NODE,PYTHON,GO,RUST language
 ```
 
