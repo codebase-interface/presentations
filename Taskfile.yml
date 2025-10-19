@@ -58,6 +58,11 @@ tasks:
           echo "  No presentations found"
         fi
 
+  update-index:
+    desc: Generate presentations array for index.html
+    cmds:
+      - ./scripts/update-index.sh
+
   clean:
     desc: Clean generated files
     cmds:

@@ -32,6 +32,7 @@ Your presentation will be available at: `http://localhost:8000/presentations/my-
 | `task new -- <name>` | Create a new presentation |
 | `task serve` | Start local development server |
 | `task list` | List all presentations |
+| `task update-index` | Generate presentations array for index.html |
 | `task help` | Show all available commands |
 
 ## Creating Presentations

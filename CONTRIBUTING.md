@@ -2,6 +2,18 @@
 
 This repository hosts reveal.js-based presentations for the Codebase Interface organization, deployed at `codebaseinterface.org/presentations/`.
 
+## Quick Workflow Overview
+
+```
+1. Create presentation:        task new -- my-presentation
+2. Edit slides:                presentations/my-presentation/index.html
+3. Test locally:               task serve
+4. Add to index:               index.html (update presentations array)
+5. Commit & push:              Git workflow
+6. Auto-deploy:                GitHub Actions → GitHub Pages
+7. Live at:                    codebaseinterface.org/presentations/my-presentation/
+```
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v14 or higher)
@@ -147,6 +159,19 @@ Run `task --list` to see all available commands:
 
 After creating a presentation, add it to the main index page so it appears on the homepage:
 
+### Option 1: Using the helper script (Recommended)
+
+1. Run the script to generate the presentations array:
+   ```bash
+   task update-index
+   ```
+
+2. Copy the output and paste it into `index.html`, replacing the existing `presentations` array.
+
+3. Update the descriptions manually to make them more meaningful.
+
+### Option 2: Manual Update
+
 1. Open `index.html` in the root directory
 2. Find the `presentations` array in the JavaScript section
 3. Add your presentation:
@@ -197,6 +222,28 @@ This setup includes the following reveal.js plugins:
 ```
 
 For more features, see the [reveal.js documentation](https://revealjs.com/).
+
+## Customizing Themes
+
+The template uses the `black` theme by default. You can change it by editing the theme link in your presentation's HTML:
+
+```html
+<link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css">
+```
+
+Available themes:
+- `black.css` (default) - Dark background
+- `white.css` - Light background
+- `league.css` - Gray background, blue links
+- `beige.css` - Beige background
+- `sky.css` - Blue gradient background
+- `night.css` - Black background, thick headers
+- `serif.css` - Cappuccino background with serif text
+- `simple.css` - White background, black text
+- `solarized.css` - Cream-colored background
+- `moon.css` - Dark blue background
+- `dracula.css` - Dracula color scheme
+- `blood.css` - Dark background, blood red accents
 
 ## Deployment
 
