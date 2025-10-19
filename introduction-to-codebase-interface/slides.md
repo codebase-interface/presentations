@@ -53,7 +53,7 @@ graph TD
 
 ## Audiences
 
-Codebases have multiple audiences each requiring a tailored interface for their needs:
+Your codebase is a product with multiple audiences, each requiring a clear interface for their needs:
 
 - Service Users
 - Contributors
