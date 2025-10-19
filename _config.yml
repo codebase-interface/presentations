@@ -4,6 +4,7 @@
 # Include necessary directories
 include:
   - lib
+  - presentations
 
 # Exclude unnecessary files from the published site
 exclude:
