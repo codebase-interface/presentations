@@ -91,20 +91,18 @@ Contributors to the codebase typically interact through the **CONTRIBUTING.md** 
 graph TD
     CONTRIBUTORS["🧑‍💻 Contributors<br/><small>Developers</small>"]
     CONTRIBUTING["👥 CONTRIBUTING.md<br/><small>Contributor Interface</small>"]
-    ISSUE_TEMPLATE["📝 ISSUE_TEMPLATE.md<br/><small>Issue Reporting</small>"]
-    PULL_REQUEST_TEMPLATE["🔄 PULL_REQUEST_TEMPLATE.md<br/><small>Pull Request Process</small>"]
     README["📖 README.md<br/><small>User Interface</small>"]
     LANGUAGE["📚 LANGUAGE.md<br/><small>Ubiquitous Language</small>"]
     CHANGELOG["📜 CHANGELOG.md<br/><small>Release Notes</small>"]
     SUPPORT["🆘 SUPPORT.md<br/><small>Support Information</small>"]
+    TODO["📋 TODO.md<br/><small>Planned Work</small>"]
 
     CONTRIBUTORS ==> CONTRIBUTING
     CONTRIBUTING ==> README
     CONTRIBUTING ==> LANGUAGE
     CONTRIBUTING ==> SUPPORT
     CONTRIBUTING ==> CHANGELOG
-    CONTRIBUTING ==> ISSUE_TEMPLATE
-    CONTRIBUTING ==> PULL_REQUEST_TEMPLATE
+    CONTRIBUTING ==> TODO
 ```
 
 --
@@ -173,6 +171,59 @@ There are multiple interfaces to consider for different audiences:
 - LANGUAGE
 - CHANGELOG
 - SUPPORT
+- TODO
+
+--
+
+## README
+
+**Your README.md is a promise to your service users** - it sets expectations about what they'll experience.
+
+- 🎯 **What the service is**
+- 🗺️ **Quick navigation**
+- 🚀 **Quick start**
+- 🧠 **Logical diagram**
+- ⚙️ **Technical diagram**
+
+--
+
+## CONTRIBUTING
+
+**Your CONTRIBUTING.md is a promise to your contributors** - it sets expectations about how they can contribute.
+
+- 👩‍💻 **How to contribute**
+- 🛠️ **Development workflow**
+- 🧪 **Testing guidelines**
+- 🧹 **Code and commit quality standards**
+- 🚀 **Change into Production**
+
+--
+
+## RUNBOOK
+
+**Your RUNBOOK.md is a promise to your operators** - it sets expectations about how to operate the service.
+
+- 🛠️ **Operational procedures**
+- 📈 **Monitoring and alerting**
+- 🔄 **Incident response**
+
+--
+
+## AGENTS
+
+**Your AGENTS.md is instructions to your AI agents** - it sets instructions about how they should interact with the codebase.
+
+- 🤖 **How AI should interact**
+- 🧠 **what the codebase should be**
+
+--
+
+## LANGUAGE
+
+**Your LANGUAGE.md sets the ubiquitous language** - it sets expectations about the terminology and concepts used within the codebase.
+
+- 📚 **Ubiquitous language**
+- 🔄 **Contextual definitions**
 
 ---
 
