@@ -1,0 +1,75 @@
+version: '3'
+
+vars:
+  PRESENTATIONS_DIR: presentations
+  SERVER_PORT: 8000
+
+tasks:
+  install:
+    desc: Install dependencies
+    cmds:
+      - npm install
+
+  serve:
+    desc: Start local development server
+    cmds:
+      - npm run serve
+    
+  new:
+    desc: Create a new presentation (usage - task new -- presentation-slug-name)
+    cmds:
+      - |
+        if [ -z "{{.CLI_ARGS}}" ]; then
+          echo "Error: Please provide a presentation name"
+          echo "Usage: task new -- my-presentation-name"
+          exit 1
+        fi
+        SLUG="{{.CLI_ARGS}}"
+        PRES_DIR="{{.PRESENTATIONS_DIR}}/${SLUG}"
+        if [ -d "${PRES_DIR}" ]; then
+          echo "Error: Presentation '${SLUG}' already exists"
+          exit 1
+        fi
+        mkdir -p "${PRES_DIR}"
+        cp -r templates/presentation/* "${PRES_DIR}/"
+        sed -i "s/PRESENTATION_TITLE/${SLUG}/g" "${PRES_DIR}/index.html"
+        sed -i "s/PRESENTATION_TITLE/${SLUG}/g" "${PRES_DIR}/slides.md"
+        echo "✅ Created new presentation: ${SLUG}"
+        echo "📂 Location: ${PRES_DIR}"
+        echo "🌐 Will be available at: /presentations/${SLUG}/"
+        echo ""
+        echo "Next steps:"
+        echo "  1. Edit ${PRES_DIR}/slides.md to add your slides (Markdown format)"
+        echo "  2. Run 'task serve' to preview locally"
+        echo "  3. View at http://localhost:{{.SERVER_PORT}}/presentations/${SLUG}/"
+
+  list:
+    desc: List all presentations
+    cmds:
+      - |
+        echo "Available presentations:"
+        if [ -d "{{.PRESENTATIONS_DIR}}" ]; then
+          for dir in {{.PRESENTATIONS_DIR}}/*/; do
+            if [ -d "$dir" ]; then
+              name=$(basename "$dir")
+              echo "  📊 ${name} - /presentations/${name}/"
+            fi
+          done
+        else
+          echo "  No presentations found"
+        fi
+
+  update-index:
+    desc: Generate presentations array for index.html
+    cmds:
+      - ./scripts/update-index.sh
+
+  clean:
+    desc: Clean generated files
+    cmds:
+      - npm run clean
+
+  help:
+    desc: Show available commands
+    cmds:
+      - task --list

@@ -1,0 +1,23 @@
+{
+  "name": "codebase-interface-presentations",
+  "version": "1.0.0",
+  "description": "Reveal.js based presentations for codebase interface",
+  "scripts": {
+    "serve": "npx http-server -p 8000 -c-1",
+    "build": "echo 'Build complete - static site ready for deployment'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "reveal.js": "^5.0.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": [
+    "presentations",
+    "reveal.js",
+    "slides"
+  ],
+  "author": "Codebase Interface",
+  "license": "MIT"
+}
