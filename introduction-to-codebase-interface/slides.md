@@ -16,7 +16,7 @@ graph TD
     CONTRIBUTING["👥 CONTRIBUTING.md<br/><small>Contributor Interface</small>"]
     RUNBOOK["🔧 RUNBOOK.md<br/><small>Operations Interface</small>"]
     AGENTS["🤖 AGENTS.md<br/><small>AI Interface</small>"]
-    BUILD["⚙️ Taskfile<br/><small>Build Interface</small>"]
+    BUILD["⚙️ CLI<br/><small>Build Interface</small>"]
     
     %% Audience Groups
     USERS["👤 Service Users<br/><small>End Users</small>"]
@@ -51,23 +51,114 @@ graph TD
 
 ---
 
-## Vertical Slides
+## Audiences
 
-Press down arrow for more
+Codebases have multiple audiences each requiring a tailored interface for their needs:
 
---
-
-## Nested Slide 1
-
-You can create vertical slide stacks
-
-Use `--` to separate slides vertically.
+- Service Users
+- Contributors
+- Operators
+- AI Agents
+- Build Agents
 
 --
 
-## Nested Slide 2
+## Service Users
 
-Navigate with arrow keys
+Users of the service typically interact with the codebase through the **README.md** file.
+
+```mermaid
+graph TD
+    USERS["👤 Service Users<br/><small>End Users</small>"]
+    README["📖 README.md<br/><small>User Interface</small>"]
+    LANGUAGE["📚 LANGUAGE.md<br/><small>Ubiquitous Language</small>"]
+    CHANGELOG["📜 CHANGELOG.md<br/><small>Release Notes</small>"]
+    SUPPORT["🆘 SUPPORT.md<br/><small>Support Information</small>"]
+
+    USERS ==> README
+    README ==> LANGUAGE
+    README ==> CHANGELOG
+    README ==> SUPPORT
+```
+
+--
+
+## Contributors
+
+Contributors to the codebase typically interact through the **CONTRIBUTING.md** file.
+
+```mermaid
+graph TD
+    CONTRIBUTORS["🧑‍💻 Contributors<br/><small>Developers</small>"]
+    CONTRIBUTING["👥 CONTRIBUTING.md<br/><small>Contributor Interface</small>"]
+    ISSUE_TEMPLATE["📝 ISSUE_TEMPLATE.md<br/><small>Issue Reporting</small>"]
+    PULL_REQUEST_TEMPLATE["🔄 PULL_REQUEST_TEMPLATE.md<br/><small>Pull Request Process</small>"]
+    README["📖 README.md<br/><small>User Interface</small>"]
+    LANGUAGE["📚 LANGUAGE.md<br/><small>Ubiquitous Language</small>"]
+    CHANGELOG["📜 CHANGELOG.md<br/><small>Release Notes</small>"]
+    SUPPORT["🆘 SUPPORT.md<br/><small>Support Information</small>"]
+
+    CONTRIBUTORS ==> CONTRIBUTING
+    CONTRIBUTING ==> README
+    CONTRIBUTING ==> LANGUAGE
+    CONTRIBUTING ==> SUPPORT
+    CONTRIBUTING ==> CHANGELOG
+    CONTRIBUTING ==> ISSUE_TEMPLATE
+    CONTRIBUTING ==> PULL_REQUEST_TEMPLATE
+```
+
+--
+
+## Operators
+
+Operators of the codebase typically interact through the **RUNBOOK.md** file.
+
+```mermaid
+graph TD
+    OPERATORS["🛠️ Operators<br/><small>DevOps/SRE</small>"]
+    RUNBOOK["📖 RUNBOOK.md<br/><small>Operational Procedures</small>"]
+    SUPPORT["🆘 SUPPORT.md<br/><small>Support Information</small>"]
+    CHANGELOG["📜 CHANGELOG.md<br/><small>Release Notes</small>"]
+
+    OPERATORS ==> RUNBOOK
+    RUNBOOK ==> SUPPORT
+    RUNBOOK ==> CHANGELOG
+
+```
+
+--
+
+## AI Agents
+
+AI Agents typically interact with the codebase through the **AGENTS.md** file.
+
+```mermaid
+graph TD
+    AI_AGENTS["🤖 AI Agents<br/><small>Automated Systems</small>"]
+    AGENTS["📖 AGENTS.md<br/><small>Agent Interface</small>"]
+
+    AI_AGENTS ==> AGENTS
+
+```
+
+--
+
+## Build Agents
+
+Build Agents typically interact with the codebase through the a build file and a CLI.
+
+```mermaid
+graph TD
+    BUILD_AGENTS["🛠️ Build Agents<br/><small>CI/CD Systems</small>"]
+    BUILD_FILE["📖 BUILD<br/><small>Build Configuration</small>"]
+    CLI["🖥️ CLI<br/><small>Command Line Interface</small>"]
+    DIRECTORY["📁 DIRECTORY<br/><small>File Structure</small>"]
+
+    BUILD_AGENTS ==> BUILD_FILE
+    BUILD_AGENTS ==> CLI
+    BUILD_AGENTS ==> DIRECTORY
+
+```
 
 ---
 
