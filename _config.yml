@@ -1,9 +1,5 @@
-# Jekyll configuration for GitHub Pages
+# Jekyll configuration for GitHub Pages  
 # This file tells GitHub Pages to serve the site directly without Jekyll processing
-
-# Include necessary directories
-include:
-  - lib
 
 # Exclude unnecessary files from the published site
 exclude:
