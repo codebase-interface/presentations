@@ -137,3 +137,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Task runner
+.task/
+
+# OS files
+.DS_Store
+Thumbs.db

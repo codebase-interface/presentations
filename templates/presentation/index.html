@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRESENTATION_TITLE - Codebase Interface</title>
+    <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../../node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="../../node_modules/reveal.js/dist/theme/black.css">
+    <link rel="stylesheet" href="../../node_modules/reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title Slide -->
+            <section>
+                <h1>PRESENTATION_TITLE</h1>
+                <p>A presentation by Codebase Interface</p>
+            </section>
+
+            <!-- Content Slide -->
+            <section>
+                <h2>Welcome</h2>
+                <p>This is a sample slide. Edit this file to create your presentation.</p>
+            </section>
+
+            <!-- Nested Vertical Slides -->
+            <section>
+                <section>
+                    <h2>Vertical Slides</h2>
+                    <p>Press down arrow for more</p>
+                </section>
+                <section>
+                    <h2>Nested Slide 1</h2>
+                    <p>You can create vertical slide stacks</p>
+                </section>
+                <section>
+                    <h2>Nested Slide 2</h2>
+                    <p>Navigate with arrow keys</p>
+                </section>
+            </section>
+
+            <!-- Code Example Slide -->
+            <section>
+                <h2>Code Examples</h2>
+                <pre><code data-trim data-noescape>
+function hello() {
+    console.log("Hello, World!");
+}
+                </code></pre>
+            </section>
+
+            <!-- Final Slide -->
+            <section>
+                <h2>Thank You!</h2>
+                <p>Visit <a href="https://codebaseinterface.org">codebaseinterface.org</a></p>
+            </section>
+        </div>
+    </div>
+
+    <script src="../../node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+            // Presentation settings
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+        });
+    </script>
+</body>
+</html>
