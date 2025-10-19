@@ -162,6 +162,20 @@ graph TD
 
 ---
 
+## Interfaces
+
+There are multiple interfaces to consider for different audiences:
+
+- README
+- CONTRIBUTING
+- RUNBOOK
+- AGENTS
+- LANGUAGE
+- CHANGELOG
+- SUPPORT
+
+---
+
 ## Principles
 
 1. Identify and empathise with all audience perspectives on the codebase.
